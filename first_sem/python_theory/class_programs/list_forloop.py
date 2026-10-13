@@ -1,5 +1,5 @@
 marks=['Sachin',50,55,67,76,89]         #declares an list 'marks' to store marks of 'Sachin'
-my_mark=[]                               #dynamic initialization 
+my_mark=[]                              #dynamic initialization 
 sum=0                            
 for number in range(5):
     newMark=int(input("Enter the marks:"))
