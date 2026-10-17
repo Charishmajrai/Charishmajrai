@@ -11,8 +11,16 @@ contactno=int(input("Enter the contactno:"))
 address=input("Enter the address:")
 currentbalance=int(input("Enter the current balance:"))
 
-mylsit=[emailid,contactno,address,currentbalance]
-mytuple=(name,pancardno,accountno,dateofbirth,mylsit)
+mylist=[emailid,contactno,address,currentbalance]
+bank_detail=(name,pancardno,accountno,dateofbirth,mylist)
 
-print("MY LIST",coustomerdetail)
-print("MY TUPLE",mylist)
+print("MY LIST",mylist)
+print("MY TUPLE",bank_detail)
+
+deposit=[]
+depositamount=int(input("Enter the deposite amount:"))
+balance=mylist[3]+depositamount
+print("Balance after deposite :",balance)
+mylist[3]=balance
+print("mylist",mylist)
+print("mytuple",bank_detail)

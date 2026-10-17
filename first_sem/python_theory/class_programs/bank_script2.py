@@ -1,66 +1,61 @@
-bank = []
-n = int(input("Enter number of customers: "))
+n = int(input("Enter the number of accounts: "))
+account_details=[]
 for i in range(n):
-    print("\nEnter details of customer", i + 1)
-    name = input("Enter name: ")
-    pan = input("Enter PAN card number: ")
-    accno = input("Enter account number: ")
+    name = input("Enter the account holder name: ")
+    pan_number = int(input("Enter PAN number: "))
     dob = input("Enter date of birth: ")
-    email = input("Enter email ID: ")
-    contact = input("Enter contact number: ")
-    address = input("Enter address: ")
-    balance = float(input("Enter current balance: "))
+    account_number=1000+i
+    emailid=input("Enter the email_id:")
+    contact=int(input("Enter the contact number:"))
+    address=input("Enter the address:")
+    balance=int(input("Enter the current balance:"))
+    bank_details=(name,pan_number,dob,account_number,[emailid,contact,address,balance])
+    current_balance=bank_details[4][3]
+    new_deposit=500
+    current_balance=current_balance+new_deposit
+    bank_details[4][3]=current_balance
+    account_details.append(bank_details)
+    
+print("Account details:",account_details)
 
-    customer = [
-        (name, pan, accno, dob),
-        [email, contact, address, balance]
-    ]
-    bank.append(customer)
+for i in range(n):
+    print("1. Deposit")
+    print("2. Withdraw")
+    print("3. Show accounts")
 
-print("\n----- BANK DETAILS -----")
-for customer in bank:
-    print(customer)
+    choice = int(input("Enter your choice: "))
 
-print("\n----- BANK MENU -----")
-print("1. Deposit")
-print("2. Withdraw")
-print("3. Display Account Details")
+    if choice == 1:
+        account_number = int(input("Enter account number: "))
 
-choice = int(input("Enter your choice: "))
+        for i in account_details:
+            if i[3] == account_number:
+                print("Account found...", i[0])
+                amount = int(input("Please enter deposit amount: "))
+                i[4][3] = i[4][3] + amount
+                print("Current balance:", i[4][3])
+                break
+        else:
+            print("Invalid account number")
 
-if choice == 1:
-    accno = input("Enter account number: ")
-    amount = float(input("Enter deposit amount: "))
-    for customer in bank:
-        if customer[0][2] == accno:
-            if amount > 0:
-                customer[1][3] += amount
-                print("Deposit successful!")
-                print("Current balance:", customer[1][3])
-            else:
-                print("Invalid amount!")
-            break
+    elif choice == 2:
+        account_number = int(input("Enter account number: "))
+
+        for i in account_details:
+            if i[3] == account_number:
+                amount = int(input("Enter withdrawal amount: "))
+
+                if amount > 0 and amount <= i[4][3]:
+                    i[4][3] = i[4][3] - amount
+                    print("Current balance:", i[4][3])
+                else:
+                    print("Insufficient balance or invalid amount")
+                break
+        else:
+            print("Invalid account number")
+
+    elif choice == 3:
+        print("Your account details:", account_details)
+
     else:
-        print("Account not found!")
-
-elif choice == 2:
-    accno = input("Enter account number: ")
-    amount = float(input("Enter withdrawal amount: "))
-    for customer in bank:
-        if customer[0][2] == accno:
-            if 0 < amount <= customer[1][3]:
-                customer[1][3] -= amount
-                print("Withdrawal successful!")
-                print("Current balance:", customer[1][3])
-            else:
-                print("Invalid amount or insufficient balance!")
-            break
-    else:
-        print("Account not found!")
-
-elif choice == 3:
-    print("\n----- BANK DETAILS -----")
-    for customer in bank:
-        print(customer)
-else:
-    print("Invalid choice!")
+        print("Invalid choice")
