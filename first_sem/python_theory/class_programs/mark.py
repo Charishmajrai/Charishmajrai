@@ -1,0 +1,26 @@
+print('first student detail')
+firstname=input(' enter your first name : ')
+firstenglishmark = input('enter the first english mark : ')
+firstmathsmark = input('enter the first maths mark : ')
+firstpythonmark = input('enter the first python mark : ')
+firstenglishmark = int(firstenglishmark)
+firstmathsmark = int(firstmathsmark)
+firstpythonmark = int(firstpythonmark)
+print('second student detail')
+secondname=input('enter your second name : ')
+secondenglishmark=input('enter the english mark : ')
+secondmathsmark=input('enter the maths mark : ')
+secondpythonmark=input('enter the python mark : ')
+secondenglishmark=int(secondenglishmark)
+secondpythonmark=int(secondpythonmark)
+secondmathsmark=int(secondmathsmark)
+totalmark=firstenglishmark+firstpythonmark+firstmathsmark
+percentage=totalmark/300*100
+totalmark1=secondenglishmark+secondpythonmark+secondmathsmark
+percentage1=totalmark1/300*100
+print('--------------------------------------------------------------------------------------------------------------------')
+print(f'{'name':>10}\t{'pythonmark':>10}\t{'englishmark':>10}\t{'mathsmark':>10}\t{'total':>10}\t{'%':>10}')
+print('----------------------------------------------------------------------------------------------------------------------')
+print(f'{firstname:>10}\t{firstpythonmark:>10}\t{firstenglishmark:>10}\t{firstmathsmark:>10}\t{totalmark:>10}\t{percentage:>10}')
+print(f'{secondname:>10}\t{secondpythonmark:>10}\t{secondenglishmark:>10}\t{secondmathsmark:>10}\t{totalmark1:>10}\t{percentage1:>10}')
+print('-----------------------------------------------------------------------------------------------------------------------')

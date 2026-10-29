@@ -4,7 +4,7 @@ for i in range(n):
     name = input("Enter the account holder name: ")
     pan_number = int(input("Enter PAN number: "))
     dob = input("Enter date of birth: ")
-    account_number=1000+i
+    account_number=int(input("Enter the account number:"))
     emailid=input("Enter the email_id:")
     contact=int(input("Enter the contact number:"))
     address=input("Enter the address:")
@@ -22,6 +22,7 @@ for i in range(n):
     print("1. Deposit")
     print("2. Withdraw")
     print("3. Show accounts")
+    print("4.EXit")
 
     choice = int(input("Enter your choice: "))
 
@@ -56,6 +57,9 @@ for i in range(n):
 
     elif choice == 3:
         print("Your account details:", account_details)
-
+    
+    elif choice == 4:
+        print("Thank you!")
+        break
     else:
         print("Invalid choice")
