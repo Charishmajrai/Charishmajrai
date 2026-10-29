@@ -1,43 +1,43 @@
 #include <stdio.h>
-#define size 5
+#define SIZE 5
 
-int stack[size];
-int top = -1;
+int stack[SIZE];
+
 
 // Push method
-void push(int mydata)
+void push(int newdata,int size,int *top)
 {
-    if(top == size - 1)
+    if(*top == size - 1)
     {
         printf("Stack Overflow\n");
     }
     else
     {
-        top++;
-        stack[top] = mydata;
+        (*top)++;
+        stack[*top] = newdata;
     }
 }
 
 // Pop method
-void pop()
+void pop(int size,int *top)
 {
-    if(top == -1)
+    if(*top == -1)
     {
         printf("Stack Underflow\n");
     }
     else
     {
-        printf("Popped data: %d\n", stack[top]);
-        top--;
+        printf("Popped data: %d\n", stack[*top]);
+        (*top)--;
     }
 }
 
 // Display stack
-void display_stack()
+void display_stack(int size,int *top)
 {
     int i;
 
-    if(top == -1)
+    if(*top == -1)
     {
         printf("Stack is empty\n");
     }
@@ -45,7 +45,7 @@ void display_stack()
     {
         printf("Stack data:\n");
 
-        for(i = top; i >= 0; i--)
+        for(i = (*top); i >= 0; i--)
         {
             printf("%d\n", stack[i]);
         }
@@ -54,7 +54,7 @@ void display_stack()
 
 int main()
 {
-    int choice, mydata;
+    int choice, mydata,top=-1;
 
     do
     {
@@ -71,15 +71,15 @@ int main()
             case 1:
                 printf("Enter the stack data: ");
                 scanf("%d", &mydata);
-                push(mydata);
+                push(mydata,SIZE,&top);
                 break;
 
             case 2:
-                pop();
+                pop(SIZE,&top);
                 break;
 
             case 3:
-                display_stack();
+                display_stack(SIZE,&top);
                 break;
 
             case 4:
