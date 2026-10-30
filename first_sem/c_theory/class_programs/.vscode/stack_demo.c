@@ -5,48 +5,35 @@ int stack[SIZE];
 
 
 // Push method
-void push(int newdata,int size,int *top)
-{
-    if(*top == size - 1)
-    {
+void push(int newdata,int size,int *top){
+    if(*top == size - 1){
         printf("Stack Overflow\n");
-    }
-    else
-    {
+    }else{
         (*top)++;
         stack[*top] = newdata;
     }
 }
 
 // Pop method
-void pop(int size,int *top)
-{
-    if(*top == -1)
-    {
+void pop(int size,int *top){
+    if(*top == -1){
         printf("Stack Underflow\n");
-    }
-    else
-    {
+    }else{
         printf("Popped data: %d\n", stack[*top]);
         (*top)--;
     }
 }
 
 // Display stack
-void display_stack(int size,int *top)
-{
+void display_stack(int size,int *top){
     int i;
 
-    if(*top == -1)
-    {
+    if(*top == -1){
         printf("Stack is empty\n");
-    }
-    else
-    {
+    }else{
         printf("Stack data:\n");
 
-        for(i = (*top); i >= 0; i--)
-        {
+        for(i = (*top); i >= 0; i--){
             printf("%d\n", stack[i]);
         }
     }
@@ -83,7 +70,7 @@ int main()
                 break;
 
             case 4:
-                printf("Exiting...\n");
+                printf("Exiting...\n5Thank You\n");
                 break;
 
             default:
